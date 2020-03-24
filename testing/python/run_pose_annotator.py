@@ -377,7 +377,7 @@ if __name__ == '__main__':
             # print(dirname_compose, relative_dirname, out_dirname)
 
             if not os.path.exists(out_dirname):
-                os.makedirs(out_dirname, exist_ok=True)
+                os.makedirs(out_dirname)
 
             with open("images_file.txt", "w") as f:
                 f.write(video + "\n")
