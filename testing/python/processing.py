@@ -3,7 +3,7 @@ import numpy as np
 from scipy.ndimage.filters import gaussian_filter
 import cv2
 
-from testing.python import util
+import util
 
 COCO_BODY_PARTS = ['nose', 'neck',
                    'right_shoulder', ' right_elbow', 'right_wrist',
