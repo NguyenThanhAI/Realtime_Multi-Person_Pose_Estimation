@@ -1,20 +1,37 @@
 import numpy as np
-from cStringIO import StringIO
+#from cStringIO import StringIO
 import PIL.Image
 from IPython.display import Image, display
 
-def showBGRimage(a, fmt='jpeg'):
-    a = np.uint8(np.clip(a, 0, 255))
-    a[:,:,[0,2]] = a[:,:,[2,0]] # for B,G,R order
-    f = StringIO()
-    PIL.Image.fromarray(a).save(f, fmt)
-    display(Image(data=f.getvalue()))
+# find connection in the specified sequence, center 29 is in the position 15
+limbSeq = [[2, 3], [2, 6], [3, 4], [4, 5], [6, 7], [7, 8], [2, 9], [9, 10],
+           [10, 11], [2, 12], [12, 13], [13, 14], [2, 1], [1, 15], [15, 17],
+           [1, 16], [16, 18], [3, 17], [6, 18]]
 
-def showmap(a, fmt='png'):
-    a = np.uint8(np.clip(a, 0, 255))
-    f = StringIO()
-    PIL.Image.fromarray(a).save(f, fmt)
-    display(Image(data=f.getvalue()))
+# the middle joints heatmap correpondence
+hmapIdx = [[31, 32], [39, 40], [33, 34], [35, 36], [41, 42], [43, 44], [19, 20], [21, 22],
+           [23, 24], [25, 26], [27, 28], [29, 30], [47, 48], [49, 50], [53, 54], [51, 52],
+           [55, 56], [37, 38], [45, 46]]
+
+# visualize
+colors = [[255, 0, 0], [255, 85, 0], [255, 170, 0], [255, 255, 0], [170, 255, 0], [85, 255, 0],
+          [0, 255, 0],
+          [0, 255, 85], [0, 255, 170], [0, 255, 255], [0, 170, 255], [0, 85, 255], [0, 0, 255],
+          [85, 0, 255],
+          [170, 0, 255], [255, 0, 255], [255, 0, 170], [255, 0, 85]]
+
+#def showBGRimage(a, fmt='jpeg'):
+#    a = np.uint8(np.clip(a, 0, 255))
+#    a[:,:,[0,2]] = a[:,:,[2,0]] # for B,G,R order
+#    f = StringIO()
+#    PIL.Image.fromarray(a).save(f, fmt)
+#    display(Image(data=f.getvalue()))
+
+#def showmap(a, fmt='png'):
+#    a = np.uint8(np.clip(a, 0, 255))
+#    f = StringIO()
+#    PIL.Image.fromarray(a).save(f, fmt)
+#    display(Image(data=f.getvalue()))
 
 #def checkparam(param):
 #    octave = param['octave']
