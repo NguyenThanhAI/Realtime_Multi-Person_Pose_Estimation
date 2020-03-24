@@ -174,7 +174,7 @@ if __name__ == '__main__':
             # print(dirname_compose, relative_dirname, out_dirname)
 
             if not os.path.exists(out_dirname):
-                os.makedirs(out_dirname, exist_ok=True)
+                os.makedirs(out_dirname)
 
             with open("videos_file.txt", "w") as f:
                 f.write(video + "\n")
@@ -191,7 +191,7 @@ if __name__ == '__main__':
                 out_video_dirname = os.path.join(args.video_save_dir, relative_dirname)
 
                 if not os.path.exists(out_video_dirname):
-                    os.makedirs(out_video_dirname, exist_ok=True)
+                    os.makedirs(out_video_dirname)
 
                 out_video = cv2.VideoWriter(os.path.join(out_video_dirname, out_video_filename),
                                             cv2.VideoWriter_fourcc(*'DIVX'), input_fps, (width, height))
