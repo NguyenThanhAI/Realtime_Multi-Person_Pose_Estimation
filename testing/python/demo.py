@@ -6,8 +6,8 @@ import numpy as np
 import cv2
 import caffe
 
-from testing.python.processing import extract_parts, draw
-from testing.python.config_reader import config_reader
+from processing import extract_parts, draw
+from config_reader import config_reader
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
